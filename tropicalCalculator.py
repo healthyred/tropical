@@ -3,7 +3,10 @@ import math
 import fileinput
 
 class tropicalMatrix(object):
-    """classfor Tropical generator"""
+    """classfor Tropical generator. The goal of this class is to assist in my senior thesis
+    research of tropical geometry in the discovery of the effects of the random generation of
+    some n x n matrix, for some integer n, and looking at the distribution (mean, standard
+    deviation) of eigenvalues."""
 
     def __init__(self, arg):
         super(, self).__init__()
@@ -61,6 +64,10 @@ class tropicalMatrix(object):
         for i in range(0, len(poly)):
             result += matToPrint(poly[i]) + "x^" + str(i) + "\n"
         return result
+
+    def findEigen(A):
+        """Uses lienar programming algorithm to return the eigenvalue"""
+        return -1
 
 if __name__ == "__main__":
     for line in fileinput.input():
