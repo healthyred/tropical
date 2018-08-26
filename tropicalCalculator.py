@@ -8,8 +8,11 @@ class tropicalMatrix(object):
     some n x n matrix, for some integer n, and looking at the distribution (mean, standard
     deviation) of eigenvalues."""
 
+    MATRIX_SIZE = 2
+    MAX_INT = 100
+    MIN_INT = 0
+
     def __init__(self, arg):
-        super(, self).__init__()
         self.arg = arg
         self.matrix = matrix
         self.matrixsize = matrixsize
@@ -17,7 +20,7 @@ class tropicalMatrix(object):
         self.max_int = MAX_INT
 
     def genMatrix():
-        return [[random.randint(self.min_int, self.max_int) for y in range(0, self.matrixsize)] for x in range(0,self.matrixsize)]
+        self.matrix = [[random.randint(self.min_int, self.max_int) for y in range(0, self.matrixsize)] for x in range(0,self.matrixsize)]
 
     def tropAdd(A, B):
         """Tropical matrix addition function"""
@@ -70,5 +73,5 @@ class tropicalMatrix(object):
         return -1
 
 if __name__ == "__main__":
-    for line in fileinput.input():
-        encodeMsg(line)
+    firstmatrix = new tropicalMatrix()
+    firstmatrix.genMatrix()
