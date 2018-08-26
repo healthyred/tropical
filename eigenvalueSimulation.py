@@ -9,6 +9,14 @@ MATRIX_SIZE = 2
 MAX_INT = 1 #(excluseive)
 MIN_INT = 0 #(inclusive)
 
+class Node(object):
+    """Node class"""
+    def __init__(self, data = None, children_weights = None):
+        self.data = data #we will label the data corresponding to the original index of the matrix
+        self.children_weights = next_node #this should be an array pointing to itself
+
+
+
 def genMatrix():
     return [[random.random() for y in range(0, MATRIX_SIZE)] for x in range(0, MATRIX_SIZE)]
 
@@ -41,8 +49,15 @@ def tropMul(A, B):
     return result
 
 def findEigen(A):
-    """Uses lienar programming algorithm to return the eigenvalue"""
-    return -1
+    """Uses linear programming algorithm to return the eigenvalue,
+    λ(A), the minimumnormalized cycle length.
+    """
+    ##todo create a graph class with nodes
+
+    length = len(A)
+    candidate_values_set = set()
+
+    return min(candidate_values_set)
 
 if __name__ == "__main__":
     A = genMatrix()
@@ -53,3 +68,4 @@ if __name__ == "__main__":
     D = tropExp(A,3)
     print(C)
     print(D)
+    print(len(C))
