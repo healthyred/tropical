@@ -49,7 +49,7 @@ def findEigen(A):
     ##todo create a graph class with nodes
     length = len(A)
     #arbitrary J in G(A)
-    j = 3
+    j = 1
     #construct an arbitrary identity element matrix of MATRIX_SIZE of A, and then arbitraily choose the jth column
     identity_jth = identityVector(j,length) #this is the x(0)
 
@@ -101,7 +101,7 @@ def maximize(column_matrix):
 if __name__ == "__main__":
 
     A = [[6, 7, INF, INF],[1, 4, INF, 6],[INF, 2, 4, 5],[INF, INF, 3, 6]]
-
+    B = [[4,4,5],[1,3,2], [1,3,4]]
     testcase = identityVector(3,len(A))
     #print(testcase)
     x_1 = tropMul(A,testcase)
@@ -116,3 +116,4 @@ if __name__ == "__main__":
     """
     #print((20 - float('inf'))/4)
     print(findEigen(A))
+    print(findEigen(B))
