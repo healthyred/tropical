@@ -4,8 +4,9 @@
 
 import math
 import random
+import numpy as np
 
-MATRIX_SIZE = 2
+MATRIX_SIZE = 10
 INF = float('inf')
 MAX_INT = 1 #(excluseive)
 MIN_INT = 0 #(inclusive)
@@ -100,11 +101,11 @@ def maximize(column_matrix):
 
 if __name__ == "__main__":
 
-    A = [[6, 7, INF, INF],[1, 4, INF, 6],[INF, 2, 4, 5],[INF, INF, 3, 6]]
-    B = [[4,4,5],[1,3,2], [1,3,4]]
-    testcase = identityVector(3,len(A))
+    #A = [[6, 7, INF, INF],[1, 4, INF, 6],[INF, 2, 4, 5],[INF, INF, 3, 6]]
+    #B = [[4,4,5],[1,3,2], [1,3,4]]
+    #testcase = identityVector(3,len(A))
     #print(testcase)
-    x_1 = tropMul(A,testcase)
+    #x_1 = tropMul(A,testcase)
     #print(x_1)
     """
     x_2 = tropMul(A,x_1)
@@ -115,5 +116,16 @@ if __name__ == "__main__":
     print(x_4)
     """
     #print((20 - float('inf'))/4)
-    print(findEigen(A))
-    print(findEigen(B))
+    #print(findEigen(A))
+    #print(findEigen(B))
+    """
+    Write a script to run 10,000 simulations and look for the standard deviation and the mean
+    of the eigenvalues produced
+    """
+    eigenvalues = []
+    for i in range(10000):
+        matrix = genMatrix()
+        eigenvalues.append(findEigen(matrix))
+    #print(eigenvalues)
+    print("Mean: " + str(np.mean(eigenvalues)))
+    print("Standard Deviation: " + str(np.std(eigenvalues)))
