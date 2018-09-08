@@ -5,8 +5,13 @@
 import math
 import random
 import numpy as np
+import plotly.plotly as py
+import plotly.tools as tls
+import matplotlib.mlab as mlab
+import matplotlib.pyplot as plt
+import pandas as pd
 
-MATRIX_SIZE = 10
+MATRIX_SIZE = 2
 INF = float('inf')
 MAX_INT = 1 #(excluseive)
 MIN_INT = 0 #(inclusive)
@@ -122,6 +127,7 @@ if __name__ == "__main__":
     Write a script to run 10,000 simulations and look for the standard deviation and the mean
     of the eigenvalues produced
     """
+    print(MATRIX_SIZE)
     eigenvalues = []
     for i in range(10000):
         matrix = genMatrix()
@@ -129,3 +135,9 @@ if __name__ == "__main__":
     #print(eigenvalues)
     print("Mean: " + str(np.mean(eigenvalues)))
     print("Standard Deviation: " + str(np.std(eigenvalues)))
+
+    """
+    9-7-2018, We continue to build upon our simulations in search for the models of
+    the pdfs of each matrix n, in an attempt to create a general formula to model this
+    phenomenon
+    """
