@@ -10,8 +10,9 @@ import plotly.tools as tls
 import matplotlib.mlab as mlab
 import matplotlib.pyplot as plt
 import pandas as pd
+tls.set_credentials_file(username='jian13579', api_key='b9Nil8C3Bnufl72mSliU')
 
-MATRIX_SIZE = 2
+MATRIX_SIZE = 10
 INF = float('inf')
 MAX_INT = 1 #(excluseive)
 MIN_INT = 0 #(inclusive)
@@ -127,14 +128,28 @@ if __name__ == "__main__":
     Write a script to run 10,000 simulations and look for the standard deviation and the mean
     of the eigenvalues produced
     """
-    print(MATRIX_SIZE)
+
+    #print(MATRIX_SIZE)
     eigenvalues = []
-    for i in range(10000):
+    for i in range(100000):
         matrix = genMatrix()
-        eigenvalues.append(findEigen(matrix))
+        eigen = findEigen(matrix)
+        eigenvalues.append(eigen)
     #print(eigenvalues)
-    print("Mean: " + str(np.mean(eigenvalues)))
-    print("Standard Deviation: " + str(np.std(eigenvalues)))
+
+    hist_bin = [x/100.0 for x in range(0,101)] #added to make the histogram bin produce a better picture
+
+    plt.hist(eigenvalues, bins = hist_bin)
+    plt.title("Eigenvalue Histogram of " + str(MATRIX_SIZE) + " x " + str(MATRIX_SIZE))
+    plt.xlabel("Value")
+    plt.ylabel("Frequency")
+    plt.show()
+    #fig = plt.gcf()
+    #plotly_fig = tls.mpl_to_plotly( fig )
+    #py.iplot(plotly_fig, filename='mpl-basic-histogram')
+    #print("Mean: " + str(np.mean(eigenvalues)))
+    #print("Standard Deviation: " + str(np.std(eigenvalues)))
+
 
     """
     9-7-2018, We continue to build upon our simulations in search for the models of
