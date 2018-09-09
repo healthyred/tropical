@@ -105,6 +105,14 @@ def maximize(column_matrix):
     #print(min(maxed_weighted_lengths))
     return min(maxed_weighted_lengths)
 
+def histogram(list_numbers):
+    hist_bin = [x/100.0 for x in range(0,101)] #added to make the histogram bin produce a better picture
+    plt.hist(list_numbers, bins = hist_bin, normed = True)
+    plt.title("Eigenvalue Histogram of " + str(MATRIX_SIZE) + " x " + str(MATRIX_SIZE))
+    plt.xlabel("Value")
+    plt.ylabel("Frequency")
+    plt.show()
+
 if __name__ == "__main__":
 
     #A = [[6, 7, INF, INF],[1, 4, INF, 6],[INF, 2, 4, 5],[INF, INF, 3, 6]]
@@ -136,14 +144,9 @@ if __name__ == "__main__":
         eigen = findEigen(matrix)
         eigenvalues.append(eigen)
     #print(eigenvalues)
+    histogram(eigenvalues)
 
-    hist_bin = [x/100.0 for x in range(0,101)] #added to make the histogram bin produce a better picture
 
-    plt.hist(eigenvalues, bins = hist_bin, normed = True)
-    plt.title("Eigenvalue Histogram of " + str(MATRIX_SIZE) + " x " + str(MATRIX_SIZE))
-    plt.xlabel("Value")
-    plt.ylabel("Frequency")
-    plt.show()
     #fig = plt.gcf()
     #plotly_fig = tls.mpl_to_plotly( fig )
     #py.iplot(plotly_fig, filename='mpl-basic-histogram')
