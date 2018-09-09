@@ -12,7 +12,7 @@ import matplotlib.pyplot as plt
 import pandas as pd
 tls.set_credentials_file(username='jian13579', api_key='b9Nil8C3Bnufl72mSliU')
 
-MATRIX_SIZE = 10
+MATRIX_SIZE = 2
 INF = float('inf')
 MAX_INT = 1 #(excluseive)
 MIN_INT = 0 #(inclusive)
@@ -139,7 +139,7 @@ if __name__ == "__main__":
 
     hist_bin = [x/100.0 for x in range(0,101)] #added to make the histogram bin produce a better picture
 
-    plt.hist(eigenvalues, bins = hist_bin)
+    plt.hist(eigenvalues, bins = hist_bin, normed = True)
     plt.title("Eigenvalue Histogram of " + str(MATRIX_SIZE) + " x " + str(MATRIX_SIZE))
     plt.xlabel("Value")
     plt.ylabel("Frequency")
